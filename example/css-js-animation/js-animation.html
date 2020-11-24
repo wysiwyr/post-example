@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript 애니메이션</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #319177;
+        position: relative;
+        margin: 50px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box-setInterval"></div>
+    <div class="box box-requestAnimationFrame"></div>
+    <div class="box box-WebAnimationAPI"></div>
+    <script>
+      const boxSetInterval = document.querySelector(".box-setInterval");
+      const boxRequestAnimationFrame = document.querySelector(".box-requestAnimationFrame");
+      const boxWebAnimationAPI = document.querySelector(".box-WebAnimationAPI");
+
+      // setInterval 방식
+      let interval = 0;
+      let intervalFlag = true;
+      boxSetInterval.onclick = function() {
+        if (intervalFlag) {
+          boxSetInterval.style.left = "0px";
+          interval = 0;
+          intervalFlag = false;
+        } else {
+          const intervalFun = setInterval(function () {
+            if (interval > 100) {
+              clearInterval(intervalFun);
+              intervalFlag = true;
+            } else {
+              boxSetInterval.style.left = parseInt(boxSetInterval.style.left) + 1 + "px";
+              interval++;
+            }
+          }, 16);
+        }
+      }
+
+      // requsetAnimationFrame 방식
+      let count = 0;
+      let requestAnimationFrameFlag = true;
+
+      function run() {
+        if (count < 100) {
+          count++;
+          boxRequestAnimationFrame.style.left = boxRequestAnimationFrame.style.left = parseInt(boxRequestAnimationFrame.style.left) + 1 + "px";
+          requestAnimationFrame(run);
+        } else {
+          requestAnimationFrameFlag = true;
+          count = 0;
+        }
+      }
+
+
+      boxRequestAnimationFrame.onclick = function() {
+        if (requestAnimationFrameFlag) {
+          boxRequestAnimationFrame.style.position = "relative";
+          boxRequestAnimationFrame.style.left = "0px";
+          requestAnimationFrameFlag = false;
+
+          requestAnimationFrame(run);
+        }
+      }
+
+      // Web Animation API 방식
+      let flag = true;
+
+      boxWebAnimationAPI.onclick = function() {
+          if (flag) {
+          const animation = boxWebAnimationAPI.animate(
+            [{ transform: "translate(0)" }, { transform: "translate(100px, 100px)" }],
+            300,
+          );
+          animation.addEventListener("finish", function () {
+            boxWebAnimationAPI.style.transform = "translate(100px, 100px)";
+            flag = false;
+          });
+        } else {
+          const animation = boxWebAnimationAPI.animate(
+            [{ transform: "translate(100px, 100px)"} , { transform: "translate(0)" }],
+            300,
+          );
+          animation.addEventListener("finish", function () {
+            boxWebAnimationAPI.style.transform = "translate(0)";
+            flag = true;
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

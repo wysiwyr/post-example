@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS 애니메이션</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #319177;
+
+        -webkit-transform: translate(0, 0);
+        -webkit-transition: -webkit-transform 500ms;
+
+        transform: translate(0, 0);
+        transition: transform 500ms;
+
+        will-change: transform;
+      }
+
+      .box.move {
+        -webkit-transform: translate(100px, 100px);
+        transform: translate(100px, 100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector(".box");
+      box.onclick = function() {
+        box.classList.toggle("move");
+      }
+    </script>
+  </body>
+</html>
