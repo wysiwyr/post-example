@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비어 있는 요소의 마진 상쇄 예제</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    div {
+      width: 100px;
+    }
+
+    .empty {
+      margin: 25px auto 0;
+    }
+
+    .fill {
+      height: 100px;
+      margin: 50px auto 0;
+      background-color: #3d354b;
+    }
+  </style>
+</head>
+<body>
+  <div class="empty"></div>
+  <div class="fill"></div>
+</body>
+</html>

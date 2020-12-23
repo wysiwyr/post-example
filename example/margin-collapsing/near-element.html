@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인접한 형제 요소간의 마진 상쇄 예제</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #446677;
+    }
+
+    .brother1 {
+      margin: 0 auto 25px;
+    }
+
+    .brother2 {
+      margin: 50px auto 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="brother1"></div>
+  <div class="brother2"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부모, 자식 요소간의 마진 상쇄 예제</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    div {
+      width: 100px;
+    }
+
+    .parent {
+      margin: 25px auto 0;
+      background-color: #446677;
+    }
+
+    .child {
+     height: 100px;
+     margin-top: 50px;
+     background-color: #3d354b;
+   }
+
+   .child2 {
+     height: 100px;
+     margin-bottom: 50px;
+     background-color: #3d354b;
+   }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+    <div class="child2"></div>
+  </div>
+</body>
+</html>
