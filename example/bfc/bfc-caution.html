@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bfc {
+      border: 1px solid #446677;
+      padding: 10px;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .display-flow-root {
+      display: flow-root;
+    }
+
+    .parent {
+      margin-bottom: 100px;
+    }
+
+    .child {
+      height: 100px;
+    }
+
+    .floated-box {
+      float: left;
+      width: 150px;
+      height: 150px;
+      background-color: #3d354b;
+    }
+  </style>
+</head>
+<body>
+  <div class="overflow-hidden parent bfc">
+    <div class="overflow-hidden child bfc">
+      <div class="floated-box"></div>
+      overflow hidden!
+    </div>
+  </div>
+
+  <div class="display-flow-root parent bfc">
+    <div class="display-flow-root child bfc">
+      <div class="floated-box"></div>
+      display flow-root!
+    </div>
+  </div>
+</body>
+</html>

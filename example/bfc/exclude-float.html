@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float 속성을 가진 자식 요소 가두기</title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 20px;
+    }
+
+    div {
+      height: 100px;
+      padding: 10px;
+    }
+
+    .bfc-box {
+      /*
+      최신 브라우저는 display: flow-root 속성을 사용해 똑같은 결과를 볼 수 있습니다.
+      */
+      overflow: hidden;
+      background-color: #446677;
+   }
+
+   .floated-box {
+     float: left;
+     width: 200px;
+     margin-right: 80px;
+     background-color: #3d354b;
+   }
+  </style>
+</head>
+<body>
+  <div class="floated-box">floated box!</div>
+  <div class="bfc-box">Block formatting context</div>
+</body>
+</html>
